@@ -1,0 +1,69 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+    android:id="@+id/pinChecker">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="fill"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background0014"/>
+
+    <FrameLayout
+        android:id="@+id/fullscreen_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:keepScreenOn="true">
+
+        <TextView
+            android:layout_gravity="top"
+            android:layout_marginTop="18pt"
+            android:text="@string/checkPIN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="16pt"/>
+
+        <EditText
+            android:id="@+id/pin_value_editor"
+            android:layout_width="match_parent"
+            android:layout_height="21pt"
+            android:layout_gravity="top"
+            android:background="@color/colorTextEditorBackground"
+            android:layout_marginTop="48pt"
+            android:inputType="numberPassword"
+            android:lines="1"
+            android:maxLength="4"
+            android:textAlignment="center"
+            android:alpha="0.5"
+            android:textColorHighlight="@color/colorWhite"
+            />
+
+        <Button
+            android:id="@+id/verify_pin"
+            android:layout_width="match_parent"
+            android:layout_height="18pt"
+            android:layout_gravity="top"
+            android:layout_marginTop="84pt"
+            android:background="@color/colorBlack"
+            android:alpha="0.3"
+            android:text="@string/go"
+            android:textSize="12pt"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="10px"
+            android:layout_marginRight="10px"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo"/>
+    </FrameLayout>
+</FrameLayout>

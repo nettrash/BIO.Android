@@ -1,11 +1,102 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ru.nettrash.bio">
+    package="ru.nettrash.bioandroid">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CAPTURE_VIDEO_OUTPUT" />
+    <uses-permission android:name="android.permission.CAPTURE_SECURE_VIDEO_OUTPUT" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
 
     <application
+        android:name=".BIOApplication"
         android:allowBackup="true"
+        android:allowClearUserData="false"
+        android:appCategory="social"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="@string/applicationName"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" />
+        android:theme="@style/AppTheme">
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="ru.nettrash.bioandroid.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/paths" />
+        </provider>
+
+        <activity
+            android:name=".RootActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/titleActivityRoot"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullscreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".InitializeActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/titleActivityInitialize"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".SetPINActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/titleActivitySetPIN"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullscreenTheme"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name=".VerifyPINActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/titleActivityVerifyPIN"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullscreenTheme"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name=".BalanceActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/titleActivityBalance"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".ReceiveActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/titleActivityReceive"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".SendActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/titleActivitySend"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullscreenTheme"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name=".HistoryActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/titleActivityHistory"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".SettingsActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/titleActivitySettings"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".EnterAmountActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/titleActivityEnterAmount"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullscreenTheme"
+            android:windowSoftInputMode="stateVisible" />
+    </application>
 </manifest>

@@ -1,3 +1,141 @@
 <resources>
-    <string name="app_name">BIO</string>
+    <string name="applicationName">BIO</string>
+
+    <string name="titleActivityRoot">BIO</string>
+    <string name="titleActivityInitialize">BIO - first steps</string>
+    <string name="titleActivitySetPIN">BIO - set pin</string>
+    <string name="titleActivityVerifyPIN">BIO - verify pin</string>
+    <string name="titleActivityBalance">BIO</string>
+    <string name="titleActivityReceive">BIO - receive</string>
+    <string name="titleActivitySend">BIO - send</string>
+    <string name="titleActivityHistory">BIO - history</string>
+    <string name="titleActivitySettings">BIO - settings</string>
+    <string name="titleActivityEnterAmount">BIO - enter amount</string>
+
+    <string name="alertDialogErrorTitle">Error</string>
+    <string name="alertDialogSetPINError">Incorrect PIN. The correct PIN consists of 4 digits</string>
+    <string name="alertDialogVerifyPINError">Incorrect PIN</string>
+
+    <string name="alertDialogClipboardTitle">Clipboard</string>
+    <string name="alertDialogClipboardMessage">Copied to clipboard.</string>
+
+    <string name="alertDialogBroadcastTitle">Broadcasted</string>
+    <string name="alertDialogMessageTitle">Message</string>
+
+    <string name="alertKeyStoreLoadedMessage">Keystore loaded!</string>
+    <string name="keystoreSaved">Keystore file saved to</string>
+    <string name="keystoreLoadErrorUnsupportedVersion">Unsupported keystore version</string>
+    <string name="keystoreLoadErrorInvalidPassword">Invalid keystore password</string>
+
+    <string name="OK">OK</string>
+    <string name="Cancel">Cancel</string>
+    <string name="CopyToClipboard">Copy to clipboard</string>
+
+    <string name="textLoading">Loading...</string>
+
+    <string name="createWallet">Create wallet</string>
+    <string name="createWalletContinue">create &amp; continue</string>
+
+    <string name="setPIN">Set PIN</string>
+    <string name="setPINContinue">Next</string>
+
+    <string name="verifyPIN">Verify PIN</string>
+    <string name="verifyPINContinue">Next</string>
+
+    <string name="tabTitleBIO">BIO</string>
+    <string name="tabTitleRates">Rates</string>
+    <string name="tabTitleBuy">Buy</string>
+    <string name="tabTitleSell">Sell</string>
+
+    <string name="textNoOps">no ops</string>
+
+    <string name="balanceRefreshInProgress">...</string>
+    <string name="balanceRefreshError">error</string>
+
+    <string name="actionButtonReceive">Receive</string>
+    <string name="actionButtonSend">Send</string>
+    <string name="actionButtonHistory">History</string>
+
+    <string name="receive">Address</string>
+    <string name="send">Transfer</string>
+    <string name="history">History</string>
+
+    <string name="bioAddress">BIO Address</string>
+    <string name="bioTransactionId">txid</string>
+
+    <string name="hintAmount">amount</string>
+    <string name="hintAddress">address</string>
+    <string name="hintCommission">commission</string>
+    <string name="hintCardExp">MMYY</string>
+    <string name="hintCVV">CVV</string>
+    <string name="hintCardNumber">card number</string>
+    <string name="hintAmountBIO">amount BIO</string>
+
+    <string name="btnSendText">Send transfer</string>
+
+    <string name="addressShareDescription">BIO Requisites</string>
+    <string name="addressShareTitle">Share Requisites</string>
+
+    <string name="keysShareTitle">BIO: Keystore</string>
+
+    <string name="successBroadcasted">Transaction sent to network. txid: </string>
+
+    <string name="textWorking">Working...</string>
+
+    <string name="commingSoon">coming</string>
+
+    <string name="settings">Settings</string>
+    <string name="savekeys">Save keys</string>
+    <string name="loadkeys">Load keys</string>
+
+    <string name="dialogPasswordTitle">Set password</string>
+    <string name="dialogPasswordMessage">Enter password (please enter a strong password)</string>
+
+    <string name="historyItemDetails">Show Details</string>
+    <string name="historyItemCopy">Copy to clipboard</string>
+
+    <string name="checkPIN">PIN</string>
+    <string name="go">GO</string>
+
+    <string name="sell">Sell</string>
+    <string name="sellfor">Sell for</string>
+    <string name="sellraterefresh">...</string>
+    <string name="sell_commission">commission 30₽ every 70000₽</string>
+    <string name="sell_commission_usd">commission 3$ every 1000$</string>
+    <string name="sell_commission_eur">commission 3€ every 1000€</string>
+    <string name="sell_rate_refresh_error">error get rate</string>
+    <string name="sell_cardtransfer_info">the transfer of funds to the card, depending on your bank and the type of card takes from 3 minutes to 3 days</string>
+
+    <string name="buy">Buy</string>
+    <string name="buyby">Buy by</string>
+    <string name="buyraterefresh">...</string>
+    <string name="buy_rate_refresh_error">error get rate</string>
+    <string name="buy_biotransfer_info">transfer is carried out with the speed of the chain</string>
+
+    <string name="exceptionSumBig">Sum too big</string>
+    <string name="exceptionInvalidCardNumber">Card Number is invalid</string>
+
+    <string name="buyOpCheckError">Error while checking operation state...</string>
+    <string name="buyOpDone">All done! Wait for BIO.</string>
+    <string name="buyOpCancel">Operation canceled. Please try again.</string>
+
+    <string name="alertDialogBuyTitle">Operation complete</string>
+
+    <string name="sellRateEmpty">Sell rate empty. Refresh sell rate before continue.</string>
+    <string name="buyRateEmpty">Buy rate empty. Refresh buy rate before continue.</string>
+
+    <string name="amountBigError">Amount is bigger than balance. Sorry.</string>
+    <string name="Fullfill">Fullfill</string>
+    <string name="otherSell">Sending </string>
+    <string name="otherSellMessage">"Receipt address: %s\nAmount receivable: %.8f\nAmount to be sent: %.8f BIO\nCommission: %.8f BIO"</string>
+
+    <string name="enterAmount">Amount in </string>
+    <string name="btnSetAmountText">Set amount</string>
+
+    <string name="availableBalance">Available</string>
+
+    <string name="invoice_unavailable_for_process">Unavailable for process. Sorry.</string>
+
+    <string name="bitpayInvoiceTitle">BitPay Invoice</string>
+    <string name="bitpayInvoiceMessage">%s\nAmount to be sent: %.8f BIO\nCommission: %.8f BIO\n</string>
 </resources>

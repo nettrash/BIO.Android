@@ -1,0 +1,126 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+    tools:context="ru.nettrash.bioandroid.SettingsActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="fill"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background0002"/>
+
+    <FrameLayout
+        android:id="@+id/fullscreen_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_marginTop="16pt"
+        android:keepScreenOn="true">
+
+        <TextView
+            android:layout_gravity="top"
+            android:text="@string/settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/colorDark"
+            android:textSize="16pt"/>
+
+        <Button
+            android:id="@+id/save_keys"
+            android:layout_width="match_parent"
+            android:layout_height="18pt"
+            android:layout_gravity="top"
+            android:layout_marginTop="58pt"
+            android:background="@color/colorBlack"
+            android:alpha="0.3"
+            android:text="@string/savekeys"
+            android:textSize="12pt"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"/>
+
+        <Button
+            android:id="@+id/load_keys"
+            android:layout_width="match_parent"
+            android:layout_height="18pt"
+            android:layout_gravity="top"
+            android:layout_marginTop="82pt"
+            android:background="@color/colorBlack"
+            android:alpha="0.3"
+            android:text="@string/loadkeys"
+            android:textSize="12pt"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"/>
+
+        <RadioGroup
+            android:id="@+id/currency_radiogroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="112pt"
+            android:gravity="center_vertical|center_horizontal">
+
+            <RadioButton
+                android:id="@+id/currency_rub_radiobutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:textSize="10pt"
+                android:padding="4pt"
+                android:textColor="@color/colorDark"
+                android:text="RUB"/>
+
+            <RadioButton
+                android:id="@+id/currency_usd_radiobutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:textSize="10pt"
+                android:padding="4pt"
+                android:textColor="@color/colorDark"
+                android:text="USD"/>
+
+            <RadioButton
+                android:id="@+id/currency_eur_radiobutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:textSize="10pt"
+                android:padding="4pt"
+                android:textColor="@color/colorDark"
+                android:text="EUR"/>
+        </RadioGroup>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="10px"
+            android:layout_marginRight="10px"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo"/>
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/fullscreen_wait"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:keepScreenOn="true"
+        android:background="@color/colorWaitBackground"
+        android:visibility="invisible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:textColor="@color/colorWhite"
+            android:textSize="10pt"
+            android:text="@string/textWorking"/>
+    </FrameLayout>
+
+</FrameLayout>

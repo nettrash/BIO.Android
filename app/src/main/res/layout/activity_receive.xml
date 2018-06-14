@@ -1,0 +1,91 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+    tools:context="ru.nettrash.bioandroid.ReceiveActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="fill"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background0001"/>
+
+    <FrameLayout
+        android:id="@+id/fullscreen_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_marginTop="6pt"
+        android:keepScreenOn="true">
+
+        <TextView
+            android:layout_gravity="top"
+            android:layout_marginTop="4pt"
+            android:text="@string/receive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/colorDark"
+            android:textSize="16pt"/>
+
+        <TextView
+            android:id="@+id/receive_address_value"
+            android:layout_width="match_parent"
+            android:layout_height="22pt"
+            android:layout_gravity="top"
+            android:background="@color/colorTextEditorBackground"
+            android:layout_marginTop="30pt"
+            android:textAlignment="gravity"
+            android:gravity="center_horizontal|center_vertical"
+            android:textSize="8pt"
+            android:textColor="@color/colorDark"
+            android:textColorHint="@color/colorDarkHint"
+            android:textColorHighlight="@color/colorWhite"/>
+
+        <EditText
+            android:id="@+id/receive_amount_value"
+            android:layout_width="match_parent"
+            android:layout_height="22pt"
+            android:layout_gravity="top"
+            android:background="@color/colorTextEditorBackground"
+            android:layout_marginTop="54pt"
+            android:textAlignment="gravity"
+            android:gravity="center_horizontal|center_vertical"
+            android:textSize="8pt"
+            android:inputType="numberDecimal"
+            android:textColor="@color/colorDark"
+            android:textColorHint="@color/colorDarkHint"
+            android:hint="@string/hintAmount"
+            android:textColorHighlight="@color/colorWhite"/>
+
+        <ImageView
+            android:id="@+id/image_receive_qr"
+            android:layout_width="150pt"
+            android:layout_height="150pt"
+            android:layout_gravity="top|center"
+            android:layout_marginTop="90pt">
+
+        </ImageView>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="10px"
+            android:layout_marginRight="10px"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo"/>
+
+        <ImageButton
+            android:id="@+id/btn_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/action"
+            android:layout_gravity="top|end"
+            android:background="@null"
+            android:layout_marginTop="7pt"
+            android:layout_marginRight="4pt"/>
+
+    </FrameLayout>
+</FrameLayout>

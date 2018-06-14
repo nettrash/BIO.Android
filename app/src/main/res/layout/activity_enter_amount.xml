@@ -1,0 +1,66 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+    tools:context="ru.nettrash.bioandroid.EnterAmountActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="fill"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background0021"/>
+
+    <FrameLayout
+        android:id="@+id/fullscreen_content"
+        android:layout_marginTop="2pt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/amount_in_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:textAlignment="gravity"
+            android:gravity="center_horizontal|center_vertical"
+            android:textColor="@color/colorDark"
+            android:layout_marginTop="8pt"
+            android:textSize="16pt"
+            android:text="@string/enterAmount"/>
+
+        <EditText
+            android:id="@+id/other_amount_value"
+            android:layout_width="match_parent"
+            android:layout_height="22pt"
+            android:layout_gravity="top"
+            android:background="@color/colorTextEditorBackground"
+            android:layout_marginTop="30pt"
+            android:textAlignment="gravity"
+            android:gravity="center_horizontal|center_vertical"
+            android:textSize="8pt"
+            android:inputType="numberDecimal"
+            android:textColor="@color/colorDark"
+            android:textColorHint="@color/colorDarkHint"
+            android:hint="@string/hintAmount"
+            android:textColorHighlight="@color/colorWhite"/>
+
+        <Button
+            android:id="@+id/btn_set_other_amount"
+            android:layout_width="match_parent"
+            android:layout_height="22pt"
+            android:layout_gravity="top"
+            android:layout_marginTop="56pt"
+            android:text="@string/btnSetAmountText"
+            android:textSize="8pt"
+            android:textColor="@color/colorWhite"
+            android:textAlignment="gravity"
+            android:gravity="center_vertical|center_horizontal"
+            android:background="@color/colorButtonBackground"
+            />
+
+    </FrameLayout>
+
+</FrameLayout>

@@ -1,0 +1,152 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+    tools:context="ru.nettrash.bioandroid.SendActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="fill"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background0008"/>
+
+    <FrameLayout
+        android:id="@+id/fullscreen_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="6pt"
+        android:gravity="center"
+        android:keepScreenOn="true">
+
+        <TextView
+            android:layout_gravity="top"
+            android:layout_marginTop="4pt"
+            android:text="@string/send"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/colorDark"
+            android:textSize="16pt"/>
+
+        <EditText
+            android:id="@+id/send_address_value"
+            android:layout_width="match_parent"
+            android:layout_height="22pt"
+            android:layout_gravity="top"
+            android:background="@color/colorTextEditorBackground"
+            android:layout_marginTop="30pt"
+            android:textAlignment="gravity"
+            android:gravity="center_horizontal|center_vertical"
+            android:textSize="8pt"
+            android:inputType="text"
+            android:textColor="@color/colorDark"
+            android:textColorHint="@color/colorDarkHint"
+            android:hint="@string/hintAddress"
+            android:textColorHighlight="@color/colorWhite"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="54pt"
+            android:layout_gravity="top"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/send_amount_value"
+                android:layout_width="128pt"
+                android:layout_height="22pt"
+                android:background="@color/colorTextEditorBackground"
+                android:textAlignment="gravity"
+                android:gravity="center_horizontal|center_vertical"
+                android:textSize="8pt"
+                android:inputType="numberDecimal"
+                android:textColor="@color/colorDark"
+                android:textColorHint="@color/colorDarkHint"
+                android:hint="@string/hintAmount"
+                android:textColorHighlight="@color/colorWhite"/>
+
+            <EditText
+                android:id="@+id/send_commission_value"
+                android:layout_width="match_parent"
+                android:layout_height="22pt"
+                android:layout_marginLeft="2pt"
+                android:background="@color/colorTextEditorBackground"
+                android:textAlignment="gravity"
+                android:gravity="center_horizontal|center_vertical"
+                android:textSize="8pt"
+                android:inputType="numberDecimal"
+                android:textColor="@color/colorDark"
+                android:textColorHint="@color/colorDarkHint"
+                android:hint="@string/hintCommission"
+                android:text="0.0001"
+                android:textColorHighlight="@color/colorWhite"/>
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btn_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/camera"
+            android:layout_gravity="top|end"
+            android:background="@null"
+            android:layout_marginTop="7pt"
+            android:layout_marginRight="4pt"/>
+
+        <Button
+            android:id="@+id/btn_send"
+            android:layout_width="match_parent"
+            android:layout_height="22pt"
+            android:layout_gravity="top"
+            android:layout_marginTop="80pt"
+            android:text="@string/btnSendText"
+            android:textSize="8pt"
+            android:textColor="@color/colorWhite"
+            android:textAlignment="gravity"
+            android:gravity="center_vertical|center_horizontal"
+            android:background="@color/colorButtonBackground"
+            />
+
+        <TextView
+            android:id="@+id/send_balance_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="106pt"
+            android:layout_marginRight="2pt"
+            android:textSize="8pt"
+            android:textStyle="bold"
+            android:textColor="@color/colorDark"
+            android:text="0.00 BIO"/>
+
+         <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="10px"
+            android:layout_marginRight="10px"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo"/>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fullscreen_wait"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:keepScreenOn="true"
+        android:background="@color/colorWaitBackground"
+        android:visibility="invisible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:textColor="@color/colorWhite"
+            android:textSize="10pt"
+            android:text="@string/textWorking"/>
+    </FrameLayout>
+</FrameLayout>

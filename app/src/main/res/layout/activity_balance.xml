@@ -1,0 +1,522 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+    tools:context="ru.nettrash.bioandroid.BalanceActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="fill"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background0000"/>
+
+    <FrameLayout
+        android:id="@+id/fullscreen_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="58pt"
+            android:layout_gravity="start"
+            android:scaleType="fitCenter"
+            android:layout_marginLeft="4pt"
+            android:layout_marginTop="4pt"
+            android:layout_marginRight="4pt"
+            android:src="@drawable/logo"/>
+
+        <TextView
+            android:id="@+id/balance_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_marginTop="64pt"
+            android:text="0.00"
+            android:textSize="28pt"
+            android:textColor="@color/colorWhite"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:fontFamily="Helvetica"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="128pt"
+            android:layout_gravity="top"
+            android:layout_marginLeft="4pt"
+            android:layout_marginRight="4pt"
+            android:layout_marginTop="104pt">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="15pt"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/segment_button_bio"
+                    android:textAllCaps="false"
+                    android:layout_width="40pt"
+                    android:layout_height="match_parent"
+                    android:text="@string/tabTitleBIO"
+                    android:background = "@drawable/segment_button_start_selected"
+                    android:textColor="@color/colorBlack"
+                    android:textAlignment="center"
+                    android:textStyle="normal"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:textSize="6pt"
+                    android:onClick="segmentButtonClick"/>
+                <Button
+                    android:id="@+id/segment_button_rates"
+                    android:textAllCaps="false"
+                    android:layout_width="40pt"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="-3px"
+                    android:text="@string/tabTitleRates"
+                    android:background = "@drawable/segment_button_middle"
+                    android:textColor="@color/colorWhite"
+                    android:textAlignment="center"
+                    android:textStyle="normal"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:textSize="6pt"
+                    android:onClick="segmentButtonClick"/>
+                <Button
+                    android:id="@+id/segment_button_buy"
+                    android:textAllCaps="false"
+                    android:layout_width="40pt"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="-3px"
+                    android:text="@string/tabTitleBuy"
+                    android:background = "@drawable/segment_button_middle"
+                    android:textColor="@color/colorWhite"
+                    android:textAlignment="center"
+                    android:textStyle="normal"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:textSize="6pt"
+                    android:onClick="segmentButtonClick"/>
+                <Button
+                    android:id="@+id/segment_button_sell"
+                    android:textAllCaps="false"
+                    android:layout_width="40pt"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="-3px"
+                    android:text="@string/tabTitleSell"
+                    android:background = "@drawable/segment_button_end"
+                    android:textColor="@color/colorWhite"
+                    android:textAlignment="center"
+                    android:textStyle="normal"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:textSize="6pt"
+                    android:onClick="segmentButtonClick"/>
+
+            </LinearLayout>
+
+            <ViewFlipper
+                android:id="@+id/view_flipper"
+                android:layout_gravity="top"
+                android:layout_marginTop="24pt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10pt"
+                    android:layout_marginRight="10pt"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/label_no_ops"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top"
+                        android:textSize="10pt"
+                        android:visibility="invisible"
+                        android:textColor="@color/colorWhite"
+                        android:text="@string/textNoOps"
+                        android:textAlignment="center"/>
+                    <android.support.v4.widget.SwipeRefreshLayout
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/last_ops_refresh"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ListView
+                            android:id="@+id/last_history_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="top"
+                            android:dividerHeight="0dp"
+                            android:divider="@null"/>
+                    </android.support.v4.widget.SwipeRefreshLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <android.support.v4.widget.SwipeRefreshLayout
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/rates_refresh"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ListView
+                            android:id="@+id/rates_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="top"
+                            android:dividerHeight="0dp"
+                            android:divider="@null"/>
+                    </android.support.v4.widget.SwipeRefreshLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10pt"
+                    android:layout_marginRight="10pt"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/buy_card_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="21pt"
+                            android:layout_gravity="start|center_vertical"
+                            android:background="@drawable/edittext_with_rounded_corners"
+                            android:textSize="8pt"
+                            android:textColor="@color/colorDark"
+                            android:textAlignment="gravity"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:paddingTop="1pt"
+                            android:paddingBottom="1pt"
+                            android:inputType="number"
+                            android:hint="@string/hintCardNumber" />
+
+                        <ImageButton
+                            android:id="@+id/buy_scan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end|center_vertical"
+                            android:background="@null"
+                            android:src="@drawable/camerawhite"/>
+
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/buy_exp"
+                            android:layout_width="32pt"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start|center_vertical"
+                            android:background="@drawable/edittext_with_rounded_corners"
+                            android:textSize="8pt"
+                            android:textColor="@color/colorDark"
+                            android:textAlignment="gravity"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:paddingTop="1pt"
+                            android:paddingBottom="1pt"
+                            android:inputType="number"
+                            android:maxLength="4"
+                            android:hint="@string/hintCardExp" />
+
+                        <EditText
+                            android:id="@+id/buy_cvv"
+                            android:layout_marginStart="36pt"
+                            android:layout_width="21pt"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start|center_vertical"
+                            android:background="@drawable/edittext_with_rounded_corners"
+                            android:textSize="8pt"
+                            android:textColor="@color/colorDark"
+                            android:textAlignment="gravity"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:paddingTop="1pt"
+                            android:paddingBottom="1pt"
+                            android:inputType="numberPassword"
+                            android:maxLength="3"
+                            android:hint="@string/hintCVV" />
+
+                        <EditText
+                            android:id="@+id/buy_amount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end|center_vertical"
+                            android:layout_marginStart="61pt"
+                            android:background="@drawable/edittext_with_rounded_corners"
+                            android:textSize="8pt"
+                            android:textColor="@color/colorDark"
+                            android:textAlignment="gravity"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:paddingTop="1pt"
+                            android:paddingBottom="1pt"
+                            android:inputType="numberDecimal"
+                            android:hint="@string/hintAmountBIO" />
+
+                    </FrameLayout>
+                    <Button
+                        android:id="@+id/buy_button"
+                        android:textAllCaps="false"
+                        android:layout_width="match_parent"
+                        android:layout_height="28dp"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginTop="4pt"
+                        android:background="@drawable/button_with_rounded_corners"
+                        android:textSize="8pt"
+                        android:textColor="@color/colorDark"
+                        android:textAlignment="gravity"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="@string/buy" />
+                    <TextView
+                        android:id="@+id/buy_rate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2pt"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="5pt"
+                        android:lines="5"
+                        android:maxLines="5"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10pt"
+                    android:layout_marginRight="10pt"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/sell_card_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="21pt"
+                            android:layout_gravity="start|center_vertical"
+                            android:background="@drawable/edittext_with_rounded_corners"
+                            android:textSize="8pt"
+                            android:textColor="@color/colorDark"
+                            android:textAlignment="gravity"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:paddingTop="1pt"
+                            android:paddingBottom="1pt"
+                            android:inputType="number"
+                            android:hint="@string/hintCardNumber" />
+
+                        <ImageButton
+                            android:id="@+id/sell_scan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end|center_vertical"
+                            android:background="@null"
+                            android:src="@drawable/camerawhite"/>
+
+                    </FrameLayout>
+                    <EditText
+                        android:id="@+id/sell_amount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:background="@drawable/edittext_with_rounded_corners"
+                        android:textSize="8pt"
+                        android:textColor="@color/colorDark"
+                        android:textAlignment="gravity"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:paddingTop="1pt"
+                        android:paddingBottom="1pt"
+                        android:inputType="numberDecimal"
+                        android:hint="@string/hintAmountBIO" />
+                    <Button
+                        android:id="@+id/sell_button"
+                        android:textAllCaps="false"
+                        android:layout_width="match_parent"
+                        android:layout_height="28dp"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginTop="4pt"
+                        android:background="@drawable/button_with_rounded_corners"
+                        android:textSize="8pt"
+                        android:textColor="@color/colorDark"
+                        android:textAlignment="gravity"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="@string/sell" />
+                    <TextView
+                        android:id="@+id/sell_rate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2pt"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="5pt"
+                        android:lines="5"
+                        android:maxLines="5"/>
+                </LinearLayout>
+
+            </ViewFlipper>
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="bottom|start"
+            android:layout_marginLeft="9pt"
+            android:layout_marginBottom="36pt">
+
+            <LinearLayout
+                android:id="@+id/action_layout_receive"
+                android:visibility="invisible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6pt"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/button_receive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:src="@drawable/actionbuttonreceive"/>
+
+                <TextView
+                    android:id="@+id/button_receive_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="4pt"
+                    android:paddingLeft="4pt"
+                    android:paddingRight="4pt"
+                    android:textSize="8pt"
+                    android:textColor="@color/colorWhite"
+                    android:text="@string/actionButtonReceive"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/action_layout_send"
+                android:visibility="invisible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6pt"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/button_send"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:src="@drawable/actionbuttonsend"/>
+
+                <TextView
+                    android:id="@+id/button_send_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="4pt"
+                    android:paddingLeft="4pt"
+                    android:paddingRight="4pt"
+                    android:textSize="8pt"
+                    android:textColor="@color/colorWhite"
+                    android:text="@string/actionButtonSend"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/action_layout_history"
+                android:visibility="invisible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6pt"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/button_history"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:src="@drawable/actionbuttonhistory"/>
+
+                <TextView
+                    android:id="@+id/button_history_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="4pt"
+                    android:paddingLeft="4pt"
+                    android:paddingRight="4pt"
+                    android:textSize="8pt"
+                    android:textColor="@color/colorWhite"
+                    android:text="@string/actionButtonHistory"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/button_settings"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginRight="12pt"
+            android:layout_marginBottom="12pt"
+            android:background="@null"
+            android:src="@drawable/actionbuttonsettings"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_marginLeft="6pt"
+            android:layout_marginBottom="6pt">
+
+            <ImageButton
+                android:id="@+id/button_action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@null"
+                android:src="@drawable/actionbutton"/>
+
+            <ImageView
+                android:id="@+id/image_tap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="6pt"
+                android:src="@drawable/tapinfo" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fullscreen_balance_wait"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:keepScreenOn="true"
+        android:background="@color/colorWaitBackground"
+        android:visibility="invisible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:textColor="@color/colorWhite"
+            android:textSize="10pt"
+            android:text="@string/textWorking"/>
+    </FrameLayout>
+
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"/>
+
+</FrameLayout>

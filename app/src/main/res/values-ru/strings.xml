@@ -1,0 +1,141 @@
+<resources>
+    <string name="applicationName">BIO</string>
+
+    <string name="titleActivityRoot">BIO</string>
+    <string name="titleActivityInitialize">BIO - первые шаги</string>
+    <string name="titleActivitySetPIN">BIO - создание PIN</string>
+    <string name="titleActivityVerifyPIN">BIO - проверка PIN</string>
+    <string name="titleActivityBalance">BIO</string>
+    <string name="titleActivityReceive">BIO - Получить</string>
+    <string name="titleActivitySend">BIO - Отправить</string>
+    <string name="titleActivityHistory">BIO - История</string>
+    <string name="titleActivitySettings">BIO - Настройки</string>
+    <string name="titleActivityEnterAmount">BIO - ввод суммы</string>
+
+    <string name="alertDialogErrorTitle">Ошибка</string>
+    <string name="alertDialogSetPINError">Неверный PIN. Верный PIN содержит 4 цифры.</string>
+    <string name="alertDialogVerifyPINError">Неверный PIN.</string>
+
+    <string name="alertDialogClipboardTitle">Буфер обмена</string>
+    <string name="alertDialogClipboardMessage">Успешно скопировано в буфер обмена.</string>
+
+    <string name="alertDialogBroadcastTitle">Отправлено</string>
+    <string name="alertDialogMessageTitle">Сообщение</string>
+
+    <string name="alertKeyStoreLoadedMessage">Хранилище ключей загружено!</string>
+    <string name="keystoreSaved">Хранилище ключей сохранено в файле</string>
+    <string name="keystoreLoadErrorUnsupportedVersion">Версия этого хранилища ключей не поддерживается.</string>
+    <string name="keystoreLoadErrorInvalidPassword">Пароль не от этого хранилища ключей.</string>
+
+    <string name="OK">OK</string>
+    <string name="Cancel">Отмена</string>
+    <string name="CopyToClipboard">Скопировать</string>
+
+    <string name="textLoading">Инициализация...</string>
+
+    <string name="createWallet">Создание кошелька</string>
+    <string name="createWalletContinue">создать и продолжить</string>
+
+    <string name="setPIN">Установка PIN</string>
+    <string name="setPINContinue">Установить и продолжить</string>
+
+    <string name="verifyPIN">Проверка PIN</string>
+    <string name="verifyPINContinue">Проверить и продолжить</string>
+
+    <string name="tabTitleBIO">BIO</string>
+    <string name="tabTitleRates">Курсы</string>
+    <string name="tabTitleBuy">Купить</string>
+    <string name="tabTitleSell">Продать</string>
+
+    <string name="textNoOps">нет операций</string>
+
+    <string name="balanceRefreshInProgress">...</string>
+    <string name="balanceRefreshError">ошибка</string>
+
+    <string name="actionButtonReceive">Получить</string>
+    <string name="actionButtonSend">Отправить</string>
+    <string name="actionButtonHistory">История</string>
+
+    <string name="receive">Адрес</string>
+    <string name="send">Перевод</string>
+    <string name="history">История</string>
+
+    <string name="bioAddress">BIO: Адрес </string>
+    <string name="bioTransactionId">BIO: txid</string>
+
+    <string name="hintAmount">сумма</string>
+    <string name="hintAddress">адрес</string>
+    <string name="hintCommission">комиссия</string>
+    <string name="hintCardExp">ММГГ</string>
+    <string name="hintCVV">CVV</string>
+    <string name="hintCardNumber">номер карты</string>
+    <string name="hintAmountBIO">количество червонцев</string>
+
+    <string name="btnSendText">Отправить перевод</string>
+
+    <string name="addressShareDescription">BIO: Реквизиты пополнения</string>
+    <string name="addressShareTitle">Поделиться реквизитами</string>
+
+    <string name="keysShareTitle">BIO: Хранилище ключей</string>
+
+    <string name="successBroadcasted">Транзакция отправлена в сеть. txid: </string>
+
+    <string name="textWorking">Работаю...</string>
+
+    <string name="commingSoon">в работе</string>
+
+    <string name="settings">Настройки</string>
+    <string name="savekeys">Выгрузить ключи</string>
+    <string name="loadkeys">Загрузить ключи</string>
+
+    <string name="dialogPasswordTitle">Установить пароль</string>
+    <string name="dialogPasswordMessage">Введите пароль (мы рекомендуем максимально сложный)</string>
+
+    <string name="historyItemDetails">Показать детали</string>
+    <string name="historyItemCopy">Скопировать в буфер обмена</string>
+
+    <string name="checkPIN">PIN</string>
+    <string name="go">Вперёд</string>
+
+    <string name="sell">Продать</string>
+    <string name="sellfor">Продать за</string>
+    <string name="sellraterefresh">...</string>
+    <string name="sell_commission">коммиссия 30₽ за каждые 70000₽</string>
+    <string name="sell_commission_usd">коммиссия 3$ за каждую 1000$</string>
+    <string name="sell_commission_eur">коммиссия 3€ за каждую 1000€</string>
+    <string name="sell_rate_refresh_error">ошибка курса</string>
+    <string name="sell_cardtransfer_info">зачисление средств на карту, в зависимости от Вашего банка и типа карты занимает от 3 минут до 3 суток</string>
+
+    <string name="buy">Купить</string>
+    <string name="buyby">Купить за</string>
+    <string name="buyraterefresh">...</string>
+    <string name="buy_rate_refresh_error">ошибка курса</string>
+    <string name="buy_biotransfer_info">перевод червонцев осуществляется со скоростью работы цепи</string>
+
+    <string name="exceptionSumBig">Сумма слишком большая</string>
+    <string name="exceptionInvalidCardNumber">Неверный номер карты</string>
+
+    <string name="buyOpCheckError">Ошибка при проверке состояния операции...</string>
+    <string name="buyOpDone">Полный успех! Ожидайте поступления монет.</string>
+    <string name="buyOpCancel">Операци отменена. Попробуйте ещё раз.</string>
+
+    <string name="alertDialogBuyTitle">Покупка совершена</string>
+
+    <string name="sellRateEmpty">Курс продажи на загружен. Попробуйте позднее.</string>
+    <string name="buyRateEmpty">Курс покупки не загружен. Попробуйте позднее.</string>
+
+    <string name="amountBigError">Сумма превышает доступный баланс.</string>
+    <string name="Fullfill">Исполнить</string>
+    <string name="otherSell">Отправка </string>
+    <string name="otherSellMessage">"Адрес получения: %s\nСумма к получению: %.8f\nСумма к отправке: %.8f BIO\nКомиссия: %.8f BIO"</string>
+
+    <string name="enterAmount">Сумма в </string>
+    <string name="btnSetAmountText">Установить сумму</string>
+
+    <string name="availableBalance">Доступно</string>
+
+    <string name="invoice_unavailable_for_process">Недоступно для исполнения. Извините.</string>
+
+    <string name="bitpayInvoiceTitle">Счёт BitPay</string>
+    <string name="bitpayInvoiceMessage">\n%s\nСумма к отправке: %.8f BIO\nКомиссия: %.8f BIO\n</string>
+</resources>

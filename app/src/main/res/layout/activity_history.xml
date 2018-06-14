@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+    tools:context="ru.nettrash.bioandroid.HistoryActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="fill"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background0020"/>
+
+    <FrameLayout
+        android:id="@+id/fullscreen_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:keepScreenOn="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="10px"
+            android:layout_marginRight="10px"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorHistoryBackgroud">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:textAlignment="gravity"
+                android:gravity="center_horizontal|center_vertical"
+                android:textColor="@color/colorWhite"
+                android:layout_marginTop="8pt"
+                android:textSize="16pt"
+                android:text="@string/history"/>
+
+            <android.support.v4.widget.SwipeRefreshLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/history_refresh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6pt"
+                android:layout_marginRight="6pt"
+                android:layout_marginTop="36pt">
+                <ListView
+                    android:id="@+id/history_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6pt"
+                    android:layout_marginRight="6pt"
+                    android:layout_marginTop="36pt"
+                    android:layout_gravity="top"
+                    android:dividerHeight="0dp"
+                    android:divider="@null"/>
+            </android.support.v4.widget.SwipeRefreshLayout>
+        </FrameLayout>
+
+    </FrameLayout>
+</FrameLayout>
