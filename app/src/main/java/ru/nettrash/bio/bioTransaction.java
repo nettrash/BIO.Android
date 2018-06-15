@@ -244,9 +244,10 @@ public final class bioTransaction {
         int[] data = new int[0];
         data = Arrays.append(data, Arrays.reverse(Arrays.toUnsignedByteArray(ByteBuffer.allocate(4).putInt(mVersion).array())));
 
-        ///////////////////
-        //time
-        ///////////////////
+        int unixTime = (int)(System.currentTimeMillis() / 1000);
+        int[] timestamp = Arrays.reverse(Arrays.toUnsignedByteArray(ByteBuffer.allocate(4).putInt(unixTime).array()));
+        timestamp[0] = 0;
+        data = Arrays.append(data, timestamp);
 
         data = Arrays.append(data, toVarIntBytes(mInput.size()));
         for (bioTransactionInput i: mInput) {

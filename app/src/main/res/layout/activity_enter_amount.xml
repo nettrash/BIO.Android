@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="fill"
         android:scaleType="centerCrop"
-        android:src="@drawable/background0021"/>
+        android:src="@drawable/background0002"/>
 
     <FrameLayout
         android:id="@+id/fullscreen_content"
