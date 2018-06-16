@@ -325,16 +325,16 @@ public class SendActivity extends BaseActivity {
             if (contents.toLowerCase().startsWith("sibcoin:")) {
                 try {
                     Uri url = Uri.parse(contents.startsWith("sibcoin://") ? contents : contents.replace("sibcoin:", "sibcoin://"));
-                    if (bioAddress.verify(url.getHost())) {
-                        mAddressView.setText(url.getHost());
-                        String amount = url.getQueryParameter("amount");
-                        if (amount != null && !amount.equalsIgnoreCase("")) {
-                            mAmountView.setText(amount);
-                            mCommissionView.requestFocus();
-                        } else {
-                            mAmountView.requestFocus();
-                        }
-                        return true;
+                    if (!bioAddress.verifySIB(url.getHost())) return false;
+                    otherCurrency = "SIB";
+                    otherAddress = url.getHost();
+                    otherAmount = Double.valueOf(url.getQueryParameter("amount"));
+
+                    if (otherAmount != null && otherAmount > 0) {
+                        findViewById(R.id.fullscreen_wait).setVisibility(View.VISIBLE);
+                        refreshOtherSellRate();
+                    } else {
+                        doEnterAmount();
                     }
                 } catch (Exception ex) {
 
@@ -354,16 +354,16 @@ public class SendActivity extends BaseActivity {
             if (contents.toLowerCase().startsWith("biocoin:")) {
                 try {
                     Uri url = Uri.parse(contents.contains("://") ? contents : contents.replace(":", "://"));
-                    if (!bioAddress.verify(url.getHost())) return false;
-                    otherCurrency = "BIO";
-                    otherAddress = url.getHost();
-                    otherAmount = Double.valueOf(url.getQueryParameter("amount"));
-
-                    if (otherAmount != null && otherAmount > 0) {
-                        findViewById(R.id.fullscreen_wait).setVisibility(View.VISIBLE);
-                        refreshOtherSellRate();
-                    } else {
-                        doEnterAmount();
+                    if (bioAddress.verify(url.getHost())) {
+                        mAddressView.setText(url.getHost());
+                        String amount = url.getQueryParameter("amount");
+                        if (amount != null && !amount.equalsIgnoreCase("")) {
+                            mAmountView.setText(amount);
+                            mCommissionView.requestFocus();
+                        } else {
+                            mAmountView.requestFocus();
+                        }
+                        return true;
                     }
 
                     return true;
