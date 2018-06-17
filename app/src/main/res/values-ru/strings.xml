@@ -69,7 +69,7 @@
     <string name="hintCardExp">ММГГ</string>
     <string name="hintCVV">CVV</string>
     <string name="hintCardNumber">номер карты</string>
-    <string name="hintAmountBIO">количество червонцев</string>
+    <string name="hintAmountBIO">количество BIO</string>
 
     <string name="btnSendText">Отправить перевод</string>
 
@@ -110,7 +110,7 @@
     <string name="buyby">Купить за</string>
     <string name="buyraterefresh">...</string>
     <string name="buy_rate_refresh_error">ошибка курса</string>
-    <string name="buy_biotransfer_info">перевод червонцев осуществляется со скоростью работы цепи</string>
+    <string name="buy_biotransfer_info">перевод BIO осуществляется со скоростью работы цепи</string>
 
     <string name="exceptionSumBig">Сумма слишком большая</string>
     <string name="exceptionInvalidCardNumber">Неверный номер карты</string>

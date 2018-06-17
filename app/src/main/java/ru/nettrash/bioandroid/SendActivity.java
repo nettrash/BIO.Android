@@ -318,8 +318,9 @@ public class SendActivity extends BaseActivity {
 
     private boolean processSIB(String contents) {
         if (bioAddress.verifySIB(contents)) {
-            mAddressView.setText(contents);
-            mAmountView.requestFocus();
+            otherCurrency = "SIB";
+            otherAddress = contents;
+            doEnterAmount();
             return true;
         } else {
             if (contents.toLowerCase().startsWith("sibcoin:")) {
@@ -328,7 +329,12 @@ public class SendActivity extends BaseActivity {
                     if (!bioAddress.verifySIB(url.getHost())) return false;
                     otherCurrency = "SIB";
                     otherAddress = url.getHost();
-                    otherAmount = Double.valueOf(url.getQueryParameter("amount"));
+
+                    try {
+                        otherAmount = Double.valueOf(url.getQueryParameter("amount"));
+                    } catch (Exception ex) {
+
+                    }
 
                     if (otherAmount != null && otherAmount > 0) {
                         findViewById(R.id.fullscreen_wait).setVisibility(View.VISIBLE);
@@ -336,8 +342,9 @@ public class SendActivity extends BaseActivity {
                     } else {
                         doEnterAmount();
                     }
+                    return true;
                 } catch (Exception ex) {
-
+                    showError(ex);
                 }
             }
         }
@@ -346,9 +353,8 @@ public class SendActivity extends BaseActivity {
 
     private boolean processBIO(String contents) {
         if (bioAddress.verify(contents)) {
-            otherCurrency = "BIO";
-            otherAddress = contents;
-            doEnterAmount();
+            mAddressView.setText(contents);
+            mAmountView.requestFocus();
             return true;
         } else {
             if (contents.toLowerCase().startsWith("biocoin:")) {

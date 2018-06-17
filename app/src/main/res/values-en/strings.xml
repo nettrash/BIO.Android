@@ -116,7 +116,7 @@
     <string name="exceptionInvalidCardNumber">Card Number is invalid</string>
 
     <string name="buyOpCheckError">Error while checking operation state...</string>
-    <string name="buyOpDone">All done! Wait fo BIO.</string>
+    <string name="buyOpDone">All done! Wait for BIO.</string>
     <string name="buyOpCancel">Operation canceled. Please try again.</string>
 
     <string name="alertDialogBuyTitle">Operation complete</string>
@@ -125,7 +125,7 @@
     <string name="buyRateEmpty">Buy rate empty. Refresh buy rate before continue.</string>
 
     <string name="amountBigError">Amount is bigger than balance. Sorry.</string>
-    <string name="Fullfill">Fullfill</string>
+    <string name="Fullfill">Fulfill</string>
     <string name="otherSell">Sending </string>
     <string name="otherSellMessage">"Receipt address: %s\nAmount receivable: %.8f\nAmount to be sent: %.8f BIO\nCommission: %.8f BIO"</string>
 
