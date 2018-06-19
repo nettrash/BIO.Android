@@ -546,7 +546,7 @@ public class SendActivity extends BaseActivity {
     private bioTransaction prepareTransaction(bioUnspentTransaction[] unspent) throws Exception {
         Double spent = 0.0;
         Double amount = Double.valueOf(mAmountView.getText().toString());
-        Double commission = Double.valueOf(mCommissionView.getText().toString());
+        Double commission = 0.0;//Double.valueOf(mCommissionView.getText().toString());
 
         bioTransaction tx = new bioTransaction();
         tx.addOutput(mAddressView.getText().toString(), amount);
@@ -689,7 +689,7 @@ public class SendActivity extends BaseActivity {
                 if (result != null) {
                     otherSellRate = result;
                     otherAmountBIO = otherAmount / otherSellRate;
-                    otherCommissionBIO = otherAmountBIO * 0.001;
+                    otherCommissionBIO = 0.0;//otherAmountBIO * 0.001;
 
                     if (bioApplication.model.getBalance() > otherAmountBIO + otherCommissionBIO) {
 

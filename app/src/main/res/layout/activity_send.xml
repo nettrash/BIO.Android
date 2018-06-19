@@ -80,7 +80,7 @@
                 android:textColor="@color/colorDark"
                 android:textColorHint="@color/colorDarkHint"
                 android:hint="@string/hintCommission"
-                android:text="0.0001"
+                android:text="0.0000"
                 android:textColorHighlight="@color/colorWhite"/>
 
         </LinearLayout>
