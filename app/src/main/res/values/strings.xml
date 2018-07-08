@@ -138,4 +138,6 @@
 
     <string name="bitpayInvoiceTitle">BitPay Invoice</string>
     <string name="bitpayInvoiceMessage">%s\nAmount to be sent: %.8f BIO\nCommission: %.8f BIO\n</string>
+
+    <string name="isNotValidAddress">Указанный адрес не является адресом сети BIO. Отправка по этому адресу не поддерживается.</string>
 </resources>

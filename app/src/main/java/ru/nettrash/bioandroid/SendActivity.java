@@ -539,8 +539,16 @@ public class SendActivity extends BaseActivity {
 
         hideKeyboard();
 
-        new unspentTransactionsAsyncTask().execute();
+        if (addressIsValid()) {
+            new unspentTransactionsAsyncTask().execute();
+        } else {
+            showMessage(getResources().getString(R.string.isNotValidAddress));
+        }
 
+    }
+
+    private boolean addressIsValid() {
+        return bioAddress.verify(mAddressView.getText().toString());
     }
 
     private bioTransaction prepareTransaction(bioUnspentTransaction[] unspent) throws Exception {
