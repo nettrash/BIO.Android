@@ -539,16 +539,26 @@ public class SendActivity extends BaseActivity {
 
         hideKeyboard();
 
-        if (addressIsValid()) {
-            new unspentTransactionsAsyncTask().execute();
-        } else {
+        if (!addressIsValid()) {
             showMessage(getResources().getString(R.string.isNotValidAddress));
+            return;
         }
 
+        if (!amountIsValid()) {
+            showMessage(getResources().getString(R.string.isNotValidAmount));
+            return;
+        }
+
+        new unspentTransactionsAsyncTask().execute();
     }
 
     private boolean addressIsValid() {
         return bioAddress.verify(mAddressView.getText().toString());
+    }
+
+    private boolean amountIsValid() {
+        //Double amount = Double.valueOf(mAmountView.getText().toString());
+        return true;
     }
 
     private bioTransaction prepareTransaction(bioUnspentTransaction[] unspent) throws Exception {

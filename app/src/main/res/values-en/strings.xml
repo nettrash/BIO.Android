@@ -140,4 +140,5 @@
     <string name="bitpayInvoiceMessage">\n%s\nAmount to be sent: %.8f BIO\nCommission: %.8f BIO\n</string>
 
     <string name="isNotValidAddress">The specified address is not the address of the BIO network. Sending to this address is not supported.</string>
+    <string name="isNotValidAmount">The amount for transfer is incorrect. Check. This amount can not be transferred.</string>
 </resources>
