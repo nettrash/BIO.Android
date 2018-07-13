@@ -307,6 +307,7 @@
                             android:paddingTop="1pt"
                             android:paddingBottom="1pt"
                             android:inputType="number"
+                            android:enabled="false"
                             android:hint="@string/hintCardNumber" />
 
                         <ImageButton
@@ -315,6 +316,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="end|center_vertical"
                             android:background="@null"
+                            android:enabled="false"
                             android:src="@drawable/camerawhite"/>
 
                     </FrameLayout>
@@ -331,6 +333,7 @@
                         android:paddingTop="1pt"
                         android:paddingBottom="1pt"
                         android:inputType="numberDecimal"
+                        android:enabled="false"
                         android:hint="@string/hintAmountBIO" />
                     <Button
                         android:id="@+id/sell_button"
@@ -344,6 +347,7 @@
                         android:textColor="@color/colorDark"
                         android:textAlignment="gravity"
                         android:gravity="center_vertical|center_horizontal"
+                        android:enabled="false"
                         android:text="@string/sell" />
                     <TextView
                         android:id="@+id/sell_rate"
