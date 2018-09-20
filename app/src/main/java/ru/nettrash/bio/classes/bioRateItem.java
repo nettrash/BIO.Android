@@ -36,7 +36,7 @@ public final class bioRateItem {
         if (Currency.toUpperCase().equals("RUB"))
             retVal.put("rate", String.format("~ %.2f %s", Rate, Currency));
         else
-            retVal.put("rate", String.format("~ %.6f %s", Rate, Currency));
+            retVal.put("rate", String.format("~ %.8f %s", Rate, Currency));
 
         return retVal;
     }
