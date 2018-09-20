@@ -141,4 +141,7 @@
 
     <string name="isNotValidAddress">Указанный адрес не является адресом сети BIO. Отправка по этому адресу не поддерживается.</string>
     <string name="isNotValidAmount">Сумма для перевода неверна. Проверьте. Указанную сумму перевести нельзя.</string>
+
+    <string name="sellInformation">Вывести BIO вы можете с помощью карты BIOCOIN.</string>
+    <string name="sellInfoButton">Заказать карту</string>
 </resources>

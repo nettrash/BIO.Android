@@ -120,6 +120,7 @@ public class BalanceActivity extends BaseActivity {
     private EditText mSellAmount;
     private Button mSellButton;
     private TextView mSellRate;
+    private Button mSellInfoButton;
 
     private EditText mBuyCardNumber;
     private EditText mBuyCardExp;
@@ -653,6 +654,61 @@ public class BalanceActivity extends BaseActivity {
         new buyRateAsyncTask().execute();
     }
 
+    private void refreshBuyRateWithAmount(Double amount)  {
+        final class buyRateAsyncTask extends AsyncTask<Double, Void, Double> {
+
+            protected bioAPI api = new bioAPI();
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                //mBuyRate.setText(R.string.buyraterefresh);
+            }
+
+            @Nullable
+            @Override
+            protected Double doInBackground(Double... params) {
+                try {
+                    return Double.valueOf(api.getBuyRateWithAmount(bioApplication.getCurrency(), params[0]));
+                } catch (Exception ex) {
+                    this.cancel(true);
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Double result) {
+                super.onPostExecute(result);
+                if (result != null) {
+                    bioApplication.model.setBuyRate(result);
+                    mBuyRate.setText("1BIO ~ " + String.format("%.2f ", 1.0 / result.doubleValue()) +
+                            bioApplication.getCurrencySymbol() + "\n" +
+                            getResources().getString(R.string.buy_biotransfer_info));
+                    try {
+                        Double amount = Double.valueOf(mBuyAmount.getText().toString());
+                        mBuyButton.setText(getResources().getString(R.string.buyby) + String.format(" %.2f", amount * (1.0 / bioApplication.model.getBuyRate())) + bioApplication.getCurrencySymbol());
+                    } catch (Exception ex) {
+                        mBuyButton.setText(getResources().getString(R.string.buy));
+                    }
+                }
+            }
+
+            @Override
+            protected void onCancelled(Double result) {
+                super.onCancelled(result);
+                mBuyRate.setText(R.string.buy_rate_refresh_error);
+            }
+
+            @Override
+            protected void onCancelled() {
+                super.onCancelled();
+                mBuyRate.setText(R.string.buy_rate_refresh_error);
+            }
+        }
+
+        new buyRateAsyncTask().execute(amount);
+    }
+
     /**
      * Touch listener to use for in-layout UI controls to delay hiding the
      * system UI. This is to prevent the jarring behavior of controls going away
@@ -845,6 +901,7 @@ public class BalanceActivity extends BaseActivity {
         mSellAmount = findViewById(R.id.sell_amount);
         mSellButton = findViewById(R.id.sell_button);
         mSellRate = findViewById(R.id.sell_rate);
+        mSellInfoButton = findViewById(R.id.sellInfo_button);
 
         mSellButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -853,6 +910,15 @@ public class BalanceActivity extends BaseActivity {
                     findViewById(R.id.fullscreen_balance_wait).setVisibility(View.VISIBLE);
                     doSell();
                 }
+            }
+        });
+
+        mSellInfoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //open URL
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.talkbank.io/biocoin/"));
+                startActivity(browserIntent);
             }
         });
 
@@ -946,6 +1012,7 @@ public class BalanceActivity extends BaseActivity {
             public void afterTextChanged(Editable s) {
                 try {
                     Double amount = Double.valueOf(s.toString());
+                    refreshBuyRateWithAmount(amount);
                     mBuyButton.setText(getResources().getString(R.string.buyby) + String.format(" %.2f", amount * (1.0 / bioApplication.model.getBuyRate())) + bioApplication.getCurrencySymbol());
                 } catch (Exception ex) {
                     mBuyButton.setText(getResources().getString(R.string.buy));

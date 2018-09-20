@@ -580,12 +580,19 @@ public class SendActivity extends BaseActivity {
         if (spent - amount - commission < 0) {
             throw new Exception(getResources().getString(R.string.amountBigError) + "\n" + getResources().getString(R.string.availableBalance) + " " + String.format("%.8f BIO", spent));
         }
-        tx.addChange(spent - amount - commission);
+        if (spent - amount - commission >= 0.01) {
+            tx.addChange(spent - amount - commission);
+        }
         return tx;
     }
 
     private void sendTransaction(bioTransaction tx) throws Exception {
-        bioApplication.model.storeWallet(tx.getChange(), (short)1);
+        bioWallet change = tx.getChange();
+        if (change != null && change.PrivateKey != null && change.PublicKey != null && change.Address != null &&
+                !change.Address.equalsIgnoreCase("") && change.WIF != null && !change.WIF.equalsIgnoreCase("") &&
+                bioAddress.verify(change.Address)) {
+            bioApplication.model.storeWallet(change, (short) 1);
+        }
         int[] sign = tx.sign(bioApplication.model.getAddresses().toArray(new Address[0]));
 
         final SendActivity self = this;
@@ -926,12 +933,19 @@ public class SendActivity extends BaseActivity {
                 break;
             }
         }
-        tx.addChange(spent - amount - otherCommissionBIO);
+        if (spent - amount - otherCommissionBIO >= 0.01) {
+            tx.addChange(spent - amount - otherCommissionBIO);
+        }
         return tx;
     }
 
     private void sendOtherTransaction(bioTransaction tx) throws Exception {
-        bioApplication.model.storeWallet(tx.getChange(), (short)1);
+        bioWallet change = tx.getChange();
+        if (change != null && change.PrivateKey != null && change.PublicKey != null && change.Address != null &&
+                !change.Address.equalsIgnoreCase("") && change.WIF != null && !change.WIF.equalsIgnoreCase("") &&
+                bioAddress.verify(change.Address)) {
+            bioApplication.model.storeWallet(change, (short) 1);
+        }
         int[] sign = tx.sign(bioApplication.model.getAddresses().toArray(new Address[0]));
 
         final class broadcastTransactionAsyncTask extends AsyncTask<int[], Void, bioBroadcastTransactionResult> {

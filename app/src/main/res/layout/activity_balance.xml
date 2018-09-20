@@ -289,9 +289,31 @@
                     android:layout_gravity="center"
                     android:orientation="vertical">
 
+                    <TextView
+                        android:id="@+id/sell_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2pt"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="10pt"
+                        android:text="@string/sellInformation"/>
+                    <Button
+                        android:id="@+id/sellInfo_button"
+                        android:textAllCaps="false"
+                        android:layout_width="match_parent"
+                        android:layout_height="28dp"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_marginTop="4pt"
+                        android:background="@drawable/button_with_rounded_corners"
+                        android:textSize="8pt"
+                        android:textColor="@color/colorDark"
+                        android:textAlignment="gravity"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="@string/sellInfoButton" />
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:visibility="invisible">
 
                         <EditText
                             android:id="@+id/sell_card_number"
@@ -334,6 +356,7 @@
                         android:paddingBottom="1pt"
                         android:inputType="numberDecimal"
                         android:enabled="false"
+                        android:visibility="invisible"
                         android:hint="@string/hintAmountBIO" />
                     <Button
                         android:id="@+id/sell_button"
@@ -348,6 +371,7 @@
                         android:textAlignment="gravity"
                         android:gravity="center_vertical|center_horizontal"
                         android:enabled="false"
+                        android:visibility="invisible"
                         android:text="@string/sell" />
                     <TextView
                         android:id="@+id/sell_rate"
@@ -357,6 +381,7 @@
                         android:textColor="@color/colorWhite"
                         android:textSize="5pt"
                         android:lines="5"
+                        android:visibility="invisible"
                         android:maxLines="5"/>
                 </LinearLayout>
 

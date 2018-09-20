@@ -141,4 +141,7 @@
 
     <string name="isNotValidAddress">The specified address is not the address of the BIO network. Sending to this address is not supported.</string>
     <string name="isNotValidAmount">The amount for transfer is incorrect. Check. This amount can not be transferred.</string>
+
+    <string name="sellInformation">Use BIOCOIN card for withdrawal.</string>
+    <string name="sellInfoButton">Get card</string>
 </resources>
