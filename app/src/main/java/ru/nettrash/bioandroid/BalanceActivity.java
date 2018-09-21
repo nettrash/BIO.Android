@@ -730,6 +730,8 @@ public class BalanceActivity extends BaseActivity {
 
         setContentView(R.layout.activity_balance);
 
+        bioApplication.setCurrency("RUB");
+
         mVisible = true;
         mContentView = findViewById(R.id.fullscreen_content);
         mBalanceView = findViewById(R.id.balance_value);
