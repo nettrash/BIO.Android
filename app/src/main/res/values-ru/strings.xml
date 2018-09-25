@@ -144,4 +144,10 @@
 
     <string name="sellInformation">Вывести BIO вы можете с помощью карты BIOCOIN.</string>
     <string name="sellInfoButton">Заказать карту</string>
+
+    <string name="buyCanceled">Покупка отменена. Попробуйте позже.</string>
+
+    <string name="sellCanceled">Продажа отменена. Попробуйте позже.</string>
+    <string name="getUnspentCanceled">Не удалось получить непотраченные входы. Попробуйте позже.</string>
+    <string name="unableToSendTransaction">Не удалось отправить транзакцию в сеть. Попробуйте позже.</string>
 </resources>

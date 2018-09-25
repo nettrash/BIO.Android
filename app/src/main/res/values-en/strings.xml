@@ -144,4 +144,10 @@
 
     <string name="sellInformation">Use BIOCOIN card for withdrawal.</string>
     <string name="sellInfoButton">Get card</string>
+
+    <string name="buyCanceled">Purchase is canceled. Please try again later.</string>
+
+    <string name="sellCanceled">Sell is canceled. Please try again later.</string>
+    <string name="getUnspentCanceled">List unspent is canceled. Please try again later.</string>
+    <string name="unableToSendTransaction">Unable to send transaction. Please try again later.</string>
 </resources>
