@@ -120,7 +120,6 @@ public class BalanceActivity extends BaseActivity {
     private EditText mSellAmount;
     private Button mSellButton;
     private TextView mSellRate;
-    private Button mSellInfoButton;
 
     private EditText mBuyCardNumber;
     private EditText mBuyCardExp;
@@ -903,7 +902,6 @@ public class BalanceActivity extends BaseActivity {
         mSellAmount = findViewById(R.id.sell_amount);
         mSellButton = findViewById(R.id.sell_button);
         mSellRate = findViewById(R.id.sell_rate);
-        mSellInfoButton = findViewById(R.id.sellInfo_button);
 
         mSellButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -912,15 +910,6 @@ public class BalanceActivity extends BaseActivity {
                     findViewById(R.id.fullscreen_balance_wait).setVisibility(View.VISIBLE);
                     doSell();
                 }
-            }
-        });
-
-        mSellInfoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //open URL
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.talkbank.io/biocoin/"));
-                startActivity(browserIntent);
             }
         });
 
