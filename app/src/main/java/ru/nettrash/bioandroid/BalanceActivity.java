@@ -653,6 +653,74 @@ public class BalanceActivity extends BaseActivity {
         new buyRateAsyncTask().execute();
     }
 
+    private void refreshSellRateWithAmount(Double amount)  {
+        final class sellRateAsyncTask extends AsyncTask<Double, Void, Double> {
+
+            protected bioAPI api = new bioAPI();
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                //mBuyRate.setText(R.string.buyraterefresh);
+            }
+
+            @Nullable
+            @Override
+            protected Double doInBackground(Double... params) {
+                try {
+                    return Double.valueOf(api.getSellRateWithAmount(bioApplication.getCurrency(), params[0]));
+                } catch (Exception ex) {
+                    this.cancel(true);
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Double result) {
+                super.onPostExecute(result);
+                if (result != null) {
+                    bioApplication.model.setSellRate(result);
+                    int commission = -1;
+                    switch (bioApplication.getCurrency()) {
+                        case "USD":
+                            commission = R.string.sell_commission_usd;
+                            break;
+                        case "EUR":
+                            commission = R.string.sell_commission_eur;
+                            break;
+                        default:
+                            commission = R.string.sell_commission;
+                            break;
+                    }
+                    mSellRate.setText("1BIO ~ " + String.format("%.2f ", result.doubleValue()) +
+                            bioApplication.getCurrencySymbol() + "\n" +
+                            getResources().getString(commission) + "\n" +
+                            getResources().getString(R.string.sell_cardtransfer_info));
+                    try {
+                        Double amount = Double.valueOf(mSellAmount.getText().toString());
+                        mSellButton.setText(getResources().getString(R.string.sellfor) + String.format(" %.2f", amount * bioApplication.model.getSellRate()) + bioApplication.getCurrencySymbol());
+                    } catch (Exception ex) {
+                        mSellButton.setText(getResources().getString(R.string.sell));
+                    }
+                }
+            }
+
+            @Override
+            protected void onCancelled(Double result) {
+                super.onCancelled(result);
+                mBuyRate.setText(R.string.sell_rate_refresh_error);
+            }
+
+            @Override
+            protected void onCancelled() {
+                super.onCancelled();
+                mBuyRate.setText(R.string.sell_rate_refresh_error);
+            }
+        }
+
+        new sellRateAsyncTask().execute(amount);
+    }
+
     private void refreshBuyRateWithAmount(Double amount)  {
         final class buyRateAsyncTask extends AsyncTask<Double, Void, Double> {
 
@@ -941,6 +1009,8 @@ public class BalanceActivity extends BaseActivity {
             public void afterTextChanged(Editable s) {
                 try {
                     Double amount = Double.valueOf(s.toString());
+                    refreshSellRateWithAmount(amount);
+
                     mSellButton.setText(getResources().getString(R.string.sellfor) + String.format(" %.2f", amount * bioApplication.model.getSellRate()) + bioApplication.getCurrencySymbol());
                 } catch (Exception ex) {
                     mSellButton.setText(getResources().getString(R.string.sell));

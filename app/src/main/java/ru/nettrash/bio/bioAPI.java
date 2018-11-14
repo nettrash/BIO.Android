@@ -322,6 +322,25 @@ public final class bioAPI {
     }
 
     @Contract(pure = true)
+    public double getSellRateWithAmount(String currency, Double amount) throws Exception {
+        String url = urlAPIRoot + "/sellRateWithAmount";
+
+        JSONObject postDataParams = new JSONObject();
+        postDataParams.put("currency", currency);
+        postDataParams.put("amount", amount);
+
+        String sResponse = _sendPOST(url, postDataParams.toString());
+        JSONObject resp = new JSONObject(sResponse);
+        JSONObject result = resp.getJSONObject("SellRateWithAmountResult");
+
+        if (result.getBoolean("Success")) {
+            return result.getDouble("Rate");
+        } else {
+            throw new Exception("Error get sell rate");
+        }
+    }
+
+    @Contract(pure = true)
     public String processSell(String currency, Double amountBIO, Double amount, String pan) throws Exception {
         String url = urlAPIRoot + "/registerSell";
 
