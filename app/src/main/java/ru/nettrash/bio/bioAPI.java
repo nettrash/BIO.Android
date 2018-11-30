@@ -104,7 +104,7 @@ public final class bioAPI {
     }
 
     public bioAPI() {
-        urlAPIRoot = "https://bioapi.sib.moe/wallet/bio.svc";
+        urlAPIRoot = "https://service.biocoin.pro/wallet/bio/bio.svc";
         userAPI = "BIO";
         passwordAPI = "DE679233-8A45-4845-AA4D-EFCA1350F0A0";
     }
