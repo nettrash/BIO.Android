@@ -1166,7 +1166,7 @@ public class BalanceActivity extends BaseActivity {
         class sibWebViewClient extends WebViewClient {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                if (url.startsWith("https://sib.cards/WS/State") || url.startsWith("https://service.biocoin.pro/PaymentPortal/WS/State")) {
+                if (url.startsWith("https://service.biocoin.pro/PaymentPortal/WS/State") || url.startsWith("https://sib.cards/WS/State")) {
                     Uri uri = Uri.parse(url);
                     bioApplication.model.setBuyOpKey(uri.getQueryParameter("OpKey"));
                     mWebView.setVisibility(View.INVISIBLE);
