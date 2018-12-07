@@ -6,8 +6,8 @@ android {
         applicationId "ru.nettrash.bioandroid"
         minSdkVersion 23
         targetSdkVersion 27
-        versionCode 11
-        versionName "1.9"
+        versionCode 12
+        versionName "1.10"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
             annotationProcessorOptions {
